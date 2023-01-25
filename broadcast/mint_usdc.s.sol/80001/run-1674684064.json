@@ -1,0 +1,35 @@
+{
+  "transactions": [
+    {
+      "hash": "0x1cc303eab8eabb6a6b1519a771550796278c0b4241644cbd7cd376785d335623",
+      "transactionType": "CALL",
+      "contractName": null,
+      "contractAddress": "0x2E8DCfE708D44ae2e406a1c02DFE2Fa13012f961",
+      "function": null,
+      "arguments": null,
+      "rpc": "https://polygon-mumbai.g.alchemy.com/v2/aTAsY_6HkDW1fBK96-XD4n3d4m4Enqs9",
+      "transaction": {
+        "type": "0x02",
+        "from": "0xc5a218617c5b8b3cbd1fbbeea70b3d51617ded64",
+        "to": "0x2e8dcfe708d44ae2e406a1c02dfe2fa13012f961",
+        "gas": "0x124b2",
+        "value": "0x0",
+        "data": "0x40c10f19000000000000000000000000c5a218617c5b8b3cbd1fbbeea70b3d51617ded6400000000000000000000000000000000000000000000000000000000000186a0",
+        "nonce": "0x0",
+        "accessList": []
+      },
+      "additionalContracts": []
+    }
+  ],
+  "receipts": [],
+  "libraries": [],
+  "pending": [
+    "0x1cc303eab8eabb6a6b1519a771550796278c0b4241644cbd7cd376785d335623"
+  ],
+  "path": "/Users/mike/github/poly-ct-scripts/broadcast/mint_usdc.s.sol/80001/run-latest.json",
+  "returns": {},
+  "timestamp": 1674684064,
+  "chain": 80001,
+  "multi": false,
+  "commit": "0d48f75"
+}

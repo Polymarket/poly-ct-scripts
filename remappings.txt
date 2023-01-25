@@ -1,0 +1,7 @@
+forge-std/=lib/forge-std/src/
+solmate/=lib/solmate/src/
+conditional-tokens/=lib/conditional-tokens-contracts/contracts/
+
+scripts/=src/scripts/
+dev/=src/dev/
+interfaces/=src/interfaces/
