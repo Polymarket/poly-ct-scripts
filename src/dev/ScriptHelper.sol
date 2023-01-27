@@ -4,6 +4,11 @@ pragma solidity ^0.8.10;
 import { Script, console, stdJson } from "forge-std/Script.sol";
 
 contract ScriptHelper is Script {
+    string constant conditionIdKey = "CONDITION_ID";
+    string constant splitAmountKey = "SPLIT_AMOUNT";
+    string constant usdcMintAmountKey = "USDC_MINT_AMOUNT";
+    bytes32 constant parentCollectionId = bytes32(0);
+
     using stdJson for string;
 
     function getAddress(string memory _key) internal returns (address) {

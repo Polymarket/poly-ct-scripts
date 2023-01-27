@@ -6,8 +6,7 @@ solc = "0.8.15"
 gas_reports = ["*"]
 optimizer_runs = 1_000_000
 bytecode_hash = "none"
-
-fs_permissions = [{ access = "read", path = "./addresses/"}]
+fs_permissions = [{ access = "read", path = "./deployments/"}]
 
 # anvil
 [profile.anvil]

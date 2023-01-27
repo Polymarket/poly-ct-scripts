@@ -5,3 +5,4 @@ conditional-tokens/=lib/conditional-tokens-contracts/contracts/
 scripts/=src/scripts/
 dev/=src/dev/
 interfaces/=src/interfaces/
+libraries/=src/libraries/

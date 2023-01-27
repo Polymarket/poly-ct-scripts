@@ -9,7 +9,11 @@ contract mint_usdc is ScriptHelper {
     function run() public virtual {
         IERC20Mintable usdc = IERC20Mintable(getAddress("USDC"));
 
+        uint256 usdcMintAmount = vm.envUint(usdcMintAmountKey);
+
         vm.broadcast();
-        usdc.mint(msg.sender, 1_000 * 10 ** 6);
+        usdc.mint(msg.sender, usdcMintAmount);
+
+        console.log("Minted", usdcMintAmount, "USDC");
     }
 }
