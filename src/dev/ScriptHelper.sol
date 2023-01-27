@@ -6,6 +6,7 @@ import { Script, console, stdJson } from "forge-std/Script.sol";
 contract ScriptHelper is Script {
     string constant conditionIdKey = "CONDITION_ID";
     string constant splitAmountKey = "SPLIT_AMOUNT";
+    string constant mergeAmountKey = "MERGE_AMOUNT";
     string constant usdcMintAmountKey = "USDC_MINT_AMOUNT";
     bytes32 constant parentCollectionId = bytes32(0);
 
@@ -19,5 +20,24 @@ contract ScriptHelper is Script {
         vm.label(addr, _key);
 
         return addr;
+    }
+
+    function getPartition() internal pure returns (uint256[] memory) {
+        return getPartition(2);
+    }
+
+    function getPartition(uint256 _outcomeCount) internal pure returns (uint256[] memory) {
+        uint256[] memory partition = new uint256[](_outcomeCount);
+
+        uint256 i;
+        uint256 indexSet = 1;
+        for (; i < _outcomeCount;) {
+            partition[i] = indexSet;
+
+            indexSet <<= 1;
+            ++i;
+        }
+
+        return partition;
     }
 }
