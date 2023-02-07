@@ -39,7 +39,7 @@ visit [https://faucet.polygon.technology](https://faucet.polygon.technology)
 
 ### USDC
 
-The USDC contract on Mumbai is mintable with signature "mint(address,uint256)". In particular, it implements `src/interfaces/IERC20Mintable.sol".
+The USDC contract on Mumbai is mintable with signature `"mint(address,uint256)"`. In particular, it implements `src/interfaces/IERC20Mintable.sol`.
 
 ### Deployments
 
