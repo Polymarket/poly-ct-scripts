@@ -21,3 +21,4 @@ max_test_rejects = 655_360
 
 [fmt]
 bracket_spacing = true
+quote_style="single"
