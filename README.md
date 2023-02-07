@@ -7,12 +7,12 @@ Scripts to help you interact with the Conditional Tokens contracts.
 Make sure to create a `.env` file following the template in `.env.example`.
 
 ```[bash]
-.run.sh [OPTIONS] SCRIPT_NAME
+./run.sh [OPTIONS] SCRIPT_NAME
 
 # e.g.
-./run -a 1000 -b mint_usdc
-./run -a 500 split
-./run balances
+./run.sh -a 1000 -b mint_usdc
+./run.sh -a 500 split
+./run.sh balances
 ```
 
 ### Options
