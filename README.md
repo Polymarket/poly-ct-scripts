@@ -2,11 +2,31 @@
 
 Scripts to help you interact with the Conditional Tokens contracts.
 
-## Environment Variables
+## Usage
 
-To use the scripts, make sure to create a `.env` file following the template in `.env.example`.
+Make sure to create a `.env` file following the template in `.env.example`.
 
-## Wallets
+```[bash]
+.run.sh [OPTIONS] SCRIPT_NAME
+
+# e.g.
+./run -a 1000 -b mint_usdc
+./run -a 500 split
+./run balances
+```
+
+### Options
+- `-a`: Specify an amount for `mint_usdc`, `split`, and `merge` scripts.
+- `-b`: Broadcast the transaction on chain.  Omit to simulate the transaction locally.
+
+### Scripts
+
+1. `balances`: Gets USDC, conditional token, and gas token balances.
+2. `mint_usdc`: Mint USDC (on Mumbai).
+3. `split`: Split collateral into conditional tokens.
+4. `merge`: Merge complete set of conditional tokens to collateral.
+
+### Wallets
 
 To make a random wallet execute `cast wallet new`.
 
@@ -17,6 +37,10 @@ To make a random wallet execute `cast wallet new`.
 To get Mumbai Matic (or Goërli ETH)
 visit [https://faucet.polygon.technology](https://faucet.polygon.technology)
 
+### USDC
+
+The USDC contract on Mumbai is mintable with signature "mint(address,uint256)". In particular, it implements `src/interfaces/IERC20Mintable.sol".
+
 ### Deployments
 
 On Mumbai the following deployments are live.
@@ -25,29 +49,7 @@ On Mumbai the following deployments are live.
 USDC: 0x2E8DCfE708D44ae2e406a1c02DFE2Fa13012f961
 CTF: 0x7d8610e9567d2a6c9fbf66a5a13e9ba8bb120d43
 ConditionId: "0xbd31dc8a20211944f6b70f31557f1001557b59905b7738480ca09bd4532f84af"
-YES tokenID: 16678291189211314787145083999015737376658799626183230671758641503291735614088
-NO tokenID: 1343197538147866997676250008839231694243646439454152539053893078719042421992
+YESTokenID: 16678291189211314787145083999015737376658799626183230671758641503291735614088
+NOTokenID: 1343197538147866997676250008839231694243646439454152539053893078719042421992
+ClobAPIUrl: "https://clob-staging.polymarket.com/"
 ```
-
-### USDC
-
-The USDC contract on Mumbai is mintable with signature "mint(address,uint256)". In particular, it implements `src/interfaces/IERC20Mintable.sol".
-
-## Scripts
-
-To run a script, use either of the runners in `./runners`. Use `broadcast.sh` to submit a transaction on-chain, or use `simulate.sh` to emulate a transaction locally. For scripts which do not affect the state of the chain, both runners works the same.
-
-Usage:
-
-```[bash]
-./runners/runner.sh SCRIPT_NAME
-
-# e.g.
-./runners/simulate.sh ct_balance
-```
-
-1. `ct_balance`: Get the positionIds and corresponding balances in a binary market with conditionId supplied in environment variables.
-2. `eth_balance`: Get the ETH/MATIC balance of the sender.
-3. `usdc_balance`: Get the USDC collateral balance of the sender.
-4. `mint_usdc`: Mint Mumbai USDC.
-5. `split_collateral`: Split collateral into conditional tokens.
