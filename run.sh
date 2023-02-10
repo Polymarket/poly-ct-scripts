@@ -5,6 +5,7 @@ source .env
 while getopts "a:b" opt; do
     case "$opt" in
     a)
+        # scale amount by 6 decimals
         AMOUNT=$(bc <<<"scale = 0;($OPTARG * 1000000)/1")
         export AMOUNT=$AMOUNT
         ;;

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: LGPL-3.0
 pragma solidity >0.8.0;
 
-import {IERC20} from "./IERC20.sol";
+import { IERC20 } from './IERC20.sol';
 
 /// @notice Interface for Gnosis Conditional Tokens
 interface IERC1155 {

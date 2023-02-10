@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 
 import { Script, console, stdJson } from 'forge-std/Script.sol';
 
-contract ScriptHelper is Script {
+abstract contract ScriptHelper is Script {
     string constant conditionIdKey = 'CONDITION_ID';
     string constant amountKey = 'AMOUNT';
     bytes32 constant parentCollectionId = bytes32(0);

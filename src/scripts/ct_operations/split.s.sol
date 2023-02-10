@@ -11,21 +11,26 @@ contract split is ScriptHelper {
 
     function run() public virtual {
         vm.startBroadcast();
-        _split();
-    }
 
-    function _split() public virtual {
-        IConditionalTokens ct = IConditionalTokens(getAddress('ConditionalTokens'));
-        IERC20 usdc = IERC20(getAddress('USDC'));
-
+        address conditionalTokens = getAddress('ConditionalTokens');
+        address usdc = getAddress('USDC');
         bytes32 conditionId = vm.envBytes32(conditionIdKey);
         uint256 splitAmount = vm.envUint(amountKey);
 
-        usdc.approve(address(ct), splitAmount);
-        ct.splitPosition(usdc, bytes32(0), conditionId, getPartition(), splitAmount);
+        _split(usdc, conditionalTokens, conditionId, splitAmount);
 
         console.log(
             'Split', splitAmount.formatTokenAmount(6), 'USDC in market with condition id', vm.toString(conditionId)
+        );
+    }
+
+    function _split(address _collateral, address _conditionalTokens, bytes32 _conditionId, uint256 _splitAmount)
+        public
+        virtual
+    {
+        IERC20(_collateral).approve(address(_conditionalTokens), _splitAmount);
+        IConditionalTokens(_conditionalTokens).splitPosition(
+            IERC20(_collateral), bytes32(0), _conditionId, getPartition(), _splitAmount
         );
     }
 }
