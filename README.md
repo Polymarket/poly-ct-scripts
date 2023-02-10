@@ -5,6 +5,7 @@ Scripts to help you interact with the Conditional Tokens contracts.
 ## Usage
 
 Make sure to create a `.env` file following the template in `.env.example`.
+Note: the conditionId is specified in the `.env` file.
 
 ```[bash]
 ./run.sh [OPTIONS] SCRIPT_NAME
