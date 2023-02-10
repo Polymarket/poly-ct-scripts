@@ -16,8 +16,9 @@ Make sure to create a `.env` file following the template in `.env.example`.
 ```
 
 ### Options
+
 - `-a`: Specify an amount for `mint_usdc`, `split`, and `merge` scripts.
-- `-b`: Broadcast the transaction on chain.  Omit to simulate the transaction locally.
+- `-b`: Broadcast the transaction on chain. Omit to simulate the transaction locally.
 
 ### Scripts
 

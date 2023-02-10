@@ -11,24 +11,28 @@ contract merge is ScriptHelper {
 
     function run() public virtual {
         vm.startBroadcast();
-        _merge();
-    }
 
-    function _merge() internal virtual {
-        IConditionalTokens ct = IConditionalTokens(getAddress('ConditionalTokens'));
-        IERC20 usdc = IERC20(getAddress('USDC'));
-
+        address conditionalTokens = getAddress('ConditionalTokens');
+        address usdc = getAddress('USDC');
         bytes32 conditionId = vm.envBytes32(conditionIdKey);
         uint256 mergeAmount = vm.envUint(amountKey);
 
-        vm.startBroadcast();
-        ct.mergePositions(usdc, bytes32(0), conditionId, getPartition(), mergeAmount);
+        _merge(usdc, conditionalTokens, conditionId, mergeAmount);
 
         console.log(
             'Merged',
             mergeAmount.formatTokenAmount(6),
             'complete sets in market with condition id',
             vm.toString(conditionId)
+        );
+    }
+
+    function _merge(address _usdc, address _conditionalTokens, bytes32 _conditionId, uint256 _mergeAmount)
+        public
+        virtual
+    {
+        IConditionalTokens(_conditionalTokens).mergePositions(
+            IERC20(_usdc), bytes32(0), _conditionId, getPartition(), _mergeAmount
         );
     }
 }
