@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
-
 pragma solidity >=0.5.1;
 
 // forked from Gnosis Condtional Tokens
@@ -417,10 +416,10 @@ library CTHelpers {
             yy = addmod(mulmod(x2, mulmod(x2, x2, P), P), B, P);
             uint256 y2 = sqrt(yy);
             if ((odd && y2 % 2 == 0) || (!odd && y2 % 2 == 1)) y2 = P - y2;
-            require(mulmod(y2, y2, P) == yy, "invalid parent collection ID");
+            require(mulmod(y2, y2, P) == yy, 'invalid parent collection ID');
 
             (bool success, bytes memory ret) = address(6).staticcall(abi.encode(x1, y1, x2, y2));
-            require(success, "ecadd failed");
+            require(success, 'ecadd failed');
             (x1, y1) = abi.decode(ret, (uint256, uint256));
         }
 

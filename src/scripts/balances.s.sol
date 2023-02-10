@@ -17,12 +17,12 @@ contract balances is ScriptHelper {
         tokenBalance();
     }
 
-    function walletAddress() public {
+    function walletAddress() public view {
         console.log('---');
         console.log('Wallet Address: ', msg.sender);
     }
 
-    function gasTokenBalance() public {
+    function gasTokenBalance() public view {
         console.log('---');
         console.log('Gas Token Balance:', msg.sender.balance.formatTokenAmount(18));
     }
